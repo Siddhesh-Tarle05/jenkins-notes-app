@@ -1,0 +1,12 @@
+services:
+  frontend:
+    image: tarlesiddhesh/notes-frontend:latest
+    ports:
+      - "5173:80"
+
+  backend:
+    image: tarlesiddhesh/notes-backend:latest
+    env_file:
+      - ./backend/.env
+    ports:
+      - "3000:3000"
