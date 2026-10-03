@@ -29,7 +29,7 @@ function App() {
 
   const fetchNotes = async () => {
     try {
-      const res = await fetch(API_URL);
+      const res = await fetch(`${API_URL}/api/notes`);
       if (!res.ok) throw new Error('Failed to fetch');
       const data = await res.json();
       setNotes(data);
@@ -46,7 +46,7 @@ function App() {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(`${API_URL}/api/notes`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -74,7 +74,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`${API_URL}/${id}`, {
+      const res = await fetch(`${API_URL}/api/notes/${id}`, {
         method: 'DELETE'
       });
       
