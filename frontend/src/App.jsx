@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PenSquare, Trash2, Plus, Sparkles, Loader2 } from 'lucide-react';
 import './index.css';
 
-const API_URL = 'http://localhost:3000/api/notes';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/notes';
 
 const COLORS = [
   '#3b82f6', // blue

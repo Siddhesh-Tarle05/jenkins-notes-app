@@ -4,7 +4,9 @@ import notesRouter from './routes/notes.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || '*'
+}));
 app.use(express.json());
 
 app.use('/api/notes', notesRouter);

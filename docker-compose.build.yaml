@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL}
+    image: tarlesiddhesh/notes-frontend:latest
+
+  backend:
+    build:
+      context: ./backend
+    image: tarlesiddhesh/notes-backend:latest
