@@ -32,6 +32,15 @@ pipeline {
                     '''
                 }
             }
-}
+        }
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh 'kubectl set image deployment/frontend-deployment frontend=tarlesiddhesh/notes-frontend:latest'
+                sh 'kubectl set image deployment/backend-deployment backend=tarlesiddhesh/notes-backend:latest'
+
+                sh 'kubectl rollout status deployment/frontend-deployment'
+                sh 'kubectl rollout status deployment/backend-deployment'
+            }
+        }
     }
 }
