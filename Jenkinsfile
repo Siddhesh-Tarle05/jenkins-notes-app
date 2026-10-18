@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Build Images'){
             steps{
-                sh 'docker build -f frontend/dockerfile -t "tarlesiddhesh/notes-frontend:latest"'
-                sh 'docker build -f backend/dockerfile -t "tarlesiddhesh/notes-backend:latest"'
+                sh 'docker build -f frontend/Dockerfile -t tarlesiddhesh/notes-frontend:latest ./frontend'
+                sh 'docker build -f backend/Dockerfile -t tarlesiddhesh/notes-backend:latest ./backend'
             }
         }
         stage('Push Images') {
